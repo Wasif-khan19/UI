@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Wrapper from "./Wrapper";
 import NavItems from "./NavItems";
+import Cart from "./Cart";
 
 const Navbar = () => {
   const user = null;
@@ -62,7 +63,7 @@ const Navbar = () => {
                   )} */}
 
                   <div className="ml-4 flow-root lg:ml-6 ">
-                    {/* <Cart /> */}
+                    <Cart />
                   </div>
                 </div>
               </div>

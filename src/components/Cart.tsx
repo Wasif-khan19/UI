@@ -68,7 +68,7 @@ const Cart = () => {
               className="realtive mb-4 h-60 w-60 text-muted-foreground"
             >
               <Image
-                alt="shopping cart blitz ware"
+                alt="Sparknix"
                 src="/Cart.jpg"
                 width={300}
                 height={300}
