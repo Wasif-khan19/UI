@@ -2,10 +2,12 @@ import Link from "next/link";
 import Wrapper from "./Wrapper";
 import NavItems from "./NavItems";
 import Cart from "./Cart";
+import Providers from "./Providers";
 
 const Navbar = () => {
   const user = null;
   return (
+    <Providers>
     <div className="sticky z-50 inset-x-0 h-16 top-0 bg-[#122315]">
       <header className="bg-[#122315]">
         <Wrapper>
@@ -72,6 +74,7 @@ const Navbar = () => {
         </Wrapper>
       </header>
     </div>
+    </Providers>
   );
 };
 

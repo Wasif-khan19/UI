@@ -1,20 +1,23 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
+import {z} from 'zod'
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
 
 const Page = () => {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm<TAuthCredentialsValidator>({
-//     resolver: zodResolver(AuthCredentialsValidator),
-//   });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TAuthCredentialsValidator>({
+    resolver: zodResolver(AuthCredentialsValidator),
+  });
 
-//   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-//     //send data to server
-//   };
+  const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+  };
 
   return (
     <>
@@ -39,20 +42,20 @@ const Page = () => {
         </div>
         <div className="mx-auto pt-10 flex-w-full flex-col justify-center sm:w-[400px]">
           <div className="grid gap-6">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
                 <div className="gap-1 grid">
                   <Input
-                    // {...register("email")}
-                    className={`bg-[#F3EDE4] text-base py-7 px-5 rounded-xl text-[#122315]`}
+                    {...register("email")}
+                    className={`bg-[#F3EDE4] text-base py-7 px-5 rounded-xl text-[#122315] ${errors.email}`}
                     placeholder="Enter your email"
                   />
                 </div>
 
                 <div className="gap-1 grid py-2">
                   <Input
-                    // {...register("password")}
-                    className={`bg-[#F3EDE4] text-base py-7 px-5 rounded-xl text-[#122315]`}
+                    {...register("password")}
+                    className={`bg-[#F3EDE4] text-base py-7 px-5 rounded-xl text-[#122315] ${errors.password}`}
                     placeholder="Password"
                   />
                 </div>
