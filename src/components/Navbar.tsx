@@ -42,7 +42,7 @@ const Navbar = () => {
                     <p></p>
                   ) : (
                     <Link
-                      href="signup"
+                      href="sign-up"
                       className="bg-[#55DD4A] hover:bg-[#7edb77] py-2 px-4 rounded-xl text-[#122315] font-bold"
                     >
                       JOIN NOW
