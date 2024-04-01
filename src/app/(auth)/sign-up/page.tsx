@@ -1,11 +1,9 @@
 "use client";
-
 import { Input } from "@/components/ui/input";
-import {z} from 'zod'
+import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
 
 const Page = () => {
   const {
