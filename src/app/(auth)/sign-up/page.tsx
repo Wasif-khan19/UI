@@ -1,6 +1,7 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
+import { trpc } from "@/trpc/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -14,7 +15,15 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-  const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+  const {mutate,isLoading} = trpc.auth.createPayloader.useMutation({
+
+  })
+
+  const onSubmit = ({ 
+    email, 
+    password 
+  }: TAuthCredentialsValidator) => {
+    mutate({email, password})
   };
 
   return (
@@ -22,7 +31,7 @@ const Page = () => {
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto text-center flex flex-col items-center max-w-3xl">
           <div className="ml-0 flex lg:ml-0">
-            <Link href={"/"}>
+   b         <Link href={"/"}>
               <p className="text-5xl font-black text-[#F3EDE4]">SPARKNIX</p>
             </Link>
           </div>
@@ -53,6 +62,7 @@ const Page = () => {
                 <div className="gap-1 grid py-2">
                   <Input
                     {...register("password")}
+                    type="password"
                     className={`bg-[#F3EDE4] text-base py-7 px-5 rounded-xl text-[#122315] ${errors.password}`}
                     placeholder="Password"
                   />
