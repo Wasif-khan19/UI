@@ -31,7 +31,7 @@ const Page = () => {
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto text-center flex flex-col items-center max-w-3xl">
           <div className="ml-0 flex lg:ml-0">
-   b         <Link href={"/"}>
+           <Link href={"/"}>
               <p className="text-5xl font-black text-[#F3EDE4]">SPARKNIX</p>
             </Link>
           </div>
